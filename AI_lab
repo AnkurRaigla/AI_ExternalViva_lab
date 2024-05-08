@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Question Assignment</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  label {
+    font-weight: bold;
+  }
+  input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Question Assignment</h2>
+  <form id="questionForm">
+    <label for="rollNumber">Enter your 10-digit Roll Number:</label>
+    <input type="text" id="rollNumber" name="rollNumber" maxlength="10" required pattern="\d{10}" title="Please enter a 10-digit number">
+    <button type="submit">Submit</button>
+  </form>
+  <div id="questionDisplay" style="display:none;">
+    <h3>Your assigned question:</h3>
+    <p id="assignedQuestion"></p>
+  </div>
+</div>
+
+<script>
+  // Define an object to store assigned questions
+  let assignedQuestions = {};
+
+  // Function to generate a random question
+  function generateQuestion() {
+    const questions = [
+      "What is the capital of France?",
+      "Who wrote 'To Kill a Mockingbird'?",
+      "What is the chemical symbol for water?",
+      "Who painted the Mona Lisa?",
+      "What year did the Titanic sink?",
+      // Add more questions as needed
+    ];
+    return questions[Math.floor(Math.random() * questions.length)];
+  }
+
+  // Function to handle form submission
+  function handleSubmit(event) {
+    event.preventDefault();
+    const rollNumber = document.getElementById('rollNumber').value;
+    if (assignedQuestions.hasOwnProperty(rollNumber)) {
+      // If the question is already assigned to the roll number
+      document.getElementById('assignedQuestion').textContent = assignedQuestions[rollNumber];
+    } else {
+      // If the question is not assigned yet
+      const question = generateQuestion();
+      assignedQuestions[rollNumber] = question;
+      document.getElementById('assignedQuestion').textContent = question;
+    }
+    document.getElementById('questionDisplay').style.display = 'block';
+  }
+
+  // Add event listener to the form
+  document.getElementById('questionForm').addEventListener('submit', handleSubmit);
+</script>
+
+</body>
+</html>
