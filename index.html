@@ -64,18 +64,20 @@
   // Function to generate a random question
   function generateQuestion() {
     const questions = [
-      "LCD Display:\n- Task: Display 'Hello, World!' on the LCD screen.\n- Criteria: Text should be centered on the screen.",
-      "Push Button:\n- Task: Control an LED using a push button.\n- Criteria: Pressing the button should toggle the LED on or off.",
-      "DC Motor Control:\n- Task: Rotate a DC motor in one direction for 3 seconds and then in the opposite direction for 3 seconds.\n- Criteria: Motor rotation should be smooth and controlled.",
-      "Ultrasonic Sensor:\n- Task: Measure the distance to an object using an ultrasonic sensor.\n- Criteria: Display the distance in centimeters on the serial monitor.",
-      "Servo Motor:\n- Task: Rotate a servo motor to 90 degrees.\n- Criteria: The servo motor should smoothly rotate to the specified angle.",
-      "MQ2 Gas Sensor:\n- Task: Detect the presence of gas using the MQ2 sensor.\n- Criteria: Upon detecting gas, turn on an LED and display 'Gas Detected' on the serial monitor.",
-      "Soil Moisture Sensor:\n- Task: Monitor soil moisture level.\n- Criteria: Activate an LED if the soil moisture drops below a certain threshold.",
-      "Task:\n- Task: Create a system that controls the rotation of a servo motor based on the input from a push button.\n- Criteria: Pressing the button should rotate the servo motor to 90 degrees and releasing it should return it to 0 degrees.",
-      "Task:\n- Task: Create a temperature monitoring system using a temperature sensor.\n- Criteria: Display the temperature in Celsius on the LCD screen and activate an LED if the temperature exceeds a certain threshold.",
-      "Task:\n- Task: Integrate a push button, an ultrasonic sensor, and an LED to create a security system.\n- Criteria: If the ultrasonic sensor detects an object within a certain range and the button is pressed, activate the LED to signal an intrusion."
-      // Add more questions as needed
-    ];
+  "Float Layout:\n- Task: Create a layout using floats where three boxes are aligned horizontally next to each other inside a container. Each box should be 30% of the container's width, and the space between them should be 10px.\n- Criteria: Ensure the layout is responsive and that the boxes stack vertically on smaller screens (mobile).",
+  "Responsive Flexbox Layout:\n- Task: Create a card layout using Flexbox where you have a container with three cards. Each card should have an image on top, followed by a title and a description.\n- Criteria: The cards should be aligned side by side in a row on larger screens and stacked on top of each other on smaller screens.",
+  "CSS Grid Layout:\n- Task: Using CSS Grid, create a layout with a header, sidebar, main content area, and footer.\n- Criteria: The sidebar should be 20% of the width, and the main content should occupy the remaining space. On smaller screens, the sidebar should appear below the main content.",
+  "Bootstrap Card Layout:\n- Task: Use Bootstrap to create a responsive grid with four cards in a row. Each card should include an image, a title, and a short description.\n- Criteria: On smaller screens, the cards should stack into two rows with two cards in each row.",
+  "Float-Based Image Gallery:\n- Task: Create an image gallery using floats. Display six images in two rows of three images each.\n- Criteria: Add some margin between the images for better spacing and ensure that the images are responsive and stack vertically on smaller screens.",
+  "Flexbox Centering:\n- Task: Create a container that uses Flexbox to center a single box both horizontally and vertically in the middle of the viewport.\n- Criteria: The box should have a fixed width of 300px and height of 200px.",
+  "Bootstrap Form Layout:\n- Task: Design a registration form using Bootstrap that includes the following fields: First Name, Last Name, Email, Password, Confirm Password, and a 'Submit' button.\n- Criteria: Arrange the form fields in two columns on larger screens and in a single column on smaller screens.",
+  "Table with Bootstrap:\n- Task: Create a table using Bootstrap that displays information about five students, including their names, grades, and subjects.\n- Criteria: Make the table responsive, add striped rows for better readability, and include a column that highlights the student's name in bold.",
+  "CSS Grid Photo Gallery:\n- Task: Create a photo gallery using CSS Grid. Display nine images in a 3x3 grid.\n- Criteria: Adjust the number of columns based on the screen size (e.g., 2 columns on tablets and 1 column on mobile).",
+  "Flexbox Navigation Bar:\n- Task: Create a responsive navigation bar using Flexbox.\n- Criteria: The navigation bar should contain the following links: Home, About, Services, and Contact. Align the links horizontally in a row on larger screens and stack them vertically on smaller screens.",
+  "Bootstrap Responsive Navbar:\n- Task: Implement a fixed top navbar with a logo, a search bar, and a dropdown menu containing navigation links.\n- Criteria: Use Bootstrap's navbar component and grid system for layout.",
+  "Bootstrap Product Card:\n- Task: Create a card with an image, title, price, and an 'Add to Cart' button.\n- Criteria: Use Bootstrap's card component and responsive design principles.",
+  "Bootstrap Carousel:\n- Task: Create a carousel with multiple images and optional captions.\n- Criteria: Use Bootstrap's carousel component and customize its appearance."
+];
     return questions[Math.floor(Math.random() * questions.length)];
   }
 
