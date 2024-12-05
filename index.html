@@ -115,22 +115,35 @@
 
   // Function to handle form submission
   function handleSubmit(event) {
-    event.preventDefault();
-    const rollNumber = document.getElementById('rollNumber').value;
-    if (assignedQuestions.hasOwnProperty(rollNumber)) {
-      // If the question is already assigned to the roll number
-      document.getElementById('assignedQuestion').textContent = assignedQuestions[rollNumber];
-    } else {
-      // If the question is not assigned yet
-      const question = generateQuestion();
-      assignedQuestions[rollNumber] = question;
-      document.getElementById('assignedQuestion').textContent = question;
-    }
-    document.getElementById('questionDisplay').style.display = 'block';
+  event.preventDefault();
+  const rollNumber = document.getElementById('rollNumber').value;
+
+  if (assignedQuestions.hasOwnProperty(rollNumber)) {
+    // If the question is already assigned to the roll number
+    const question = assignedQuestions[rollNumber];
+    displayQuestion(question);
+  } else {
+    // If the question is not assigned yet
+    const question = generateQuestion();
+    assignedQuestions[rollNumber] = question;
+    displayQuestion(question);
   }
 
-  // Add event listener to the form
-  document.getElementById('questionForm').addEventListener('submit', handleSubmit);
+  document.getElementById('questionDisplay').style.display = 'block';
+}
+
+// Function to display a question
+function displayQuestion(question) {
+  const questionDisplay = document.getElementById('assignedQuestion');
+  questionDisplay.innerHTML = `
+    <strong>Objective:</strong> ${question.objective}<br>
+    <strong>Use Case:</strong> ${question.useCase}<br>
+    <strong>Scenario:</strong> ${question.scenario}
+  `;
+}
+
+// Add event listener to the form
+document.getElementById('questionForm').addEventListener('submit', handleSubmit);
 </script>
 
 </body>
