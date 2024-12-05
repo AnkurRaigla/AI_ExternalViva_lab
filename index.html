@@ -64,19 +64,51 @@
   // Function to generate a random question
   function generateQuestion() {
     const questions = [
-  "Float Layout:\n- Task: Create a layout using floats where three boxes are aligned horizontally next to each other inside a container. Each box should be 30% of the container's width, and the space between them should be 10px.\n- Criteria: Ensure the layout is responsive and that the boxes stack vertically on smaller screens (mobile).",
-  "Responsive Flexbox Layout:\n- Task: Create a card layout using Flexbox where you have a container with three cards. Each card should have an image on top, followed by a title and a description.\n- Criteria: The cards should be aligned side by side in a row on larger screens and stacked on top of each other on smaller screens.",
-  "CSS Grid Layout:\n- Task: Using CSS Grid, create a layout with a header, sidebar, main content area, and footer.\n- Criteria: The sidebar should be 20% of the width, and the main content should occupy the remaining space. On smaller screens, the sidebar should appear below the main content.",
-  "Bootstrap Card Layout:\n- Task: Use Bootstrap to create a responsive grid with four cards in a row. Each card should include an image, a title, and a short description.\n- Criteria: On smaller screens, the cards should stack into two rows with two cards in each row.",
-  "Float-Based Image Gallery:\n- Task: Create an image gallery using floats. Display six images in two rows of three images each.\n- Criteria: Add some margin between the images for better spacing and ensure that the images are responsive and stack vertically on smaller screens.",
-  "Flexbox Centering:\n- Task: Create a container that uses Flexbox to center a single box both horizontally and vertically in the middle of the viewport.\n- Criteria: The box should have a fixed width of 300px and height of 200px.",
-  "Bootstrap Form Layout:\n- Task: Design a registration form using Bootstrap that includes the following fields: First Name, Last Name, Email, Password, Confirm Password, and a 'Submit' button.\n- Criteria: Arrange the form fields in two columns on larger screens and in a single column on smaller screens.",
-  "Table with Bootstrap:\n- Task: Create a table using Bootstrap that displays information about five students, including their names, grades, and subjects.\n- Criteria: Make the table responsive, add striped rows for better readability, and include a column that highlights the student's name in bold.",
-  "CSS Grid Photo Gallery:\n- Task: Create a photo gallery using CSS Grid. Display nine images in a 3x3 grid.\n- Criteria: Adjust the number of columns based on the screen size (e.g., 2 columns on tablets and 1 column on mobile).",
-  "Flexbox Navigation Bar:\n- Task: Create a responsive navigation bar using Flexbox.\n- Criteria: The navigation bar should contain the following links: Home, About, Services, and Contact. Align the links horizontally in a row on larger screens and stack them vertically on smaller screens.",
-  "Bootstrap Responsive Navbar:\n- Task: Implement a fixed top navbar with a logo, a search bar, and a dropdown menu containing navigation links.\n- Criteria: Use Bootstrap's navbar component and grid system for layout.",
-  "Bootstrap Product Card:\n- Task: Create a card with an image, title, price, and an 'Add to Cart' button.\n- Criteria: Use Bootstrap's card component and responsive design principles.",
-  "Bootstrap Carousel:\n- Task: Create a carousel with multiple images and optional captions.\n- Criteria: Use Bootstrap's carousel component and customize its appearance."
+  {
+    objective: "To introduce students to Cisco Packet Tracer and its use in simulating network environments.",
+    useCase: "A small company needs a network infrastructure to enable communication between computers, printers, and a central server. The IT team decides to simulate the network using Packet Tracer to troubleshoot potential issues before implementing it in real life.",
+    scenario: "You have been asked to simulate a small office network using Cisco Packet Tracer. The network includes four computers connected through a switch. Test the connectivity between these devices and observe how packets travel across the network using Simple and Complex PDU tools."
+  },
+  {
+    objective: "To explore various network topologies and understand the use of Simple and Complex PDUs in network communication analysis.",
+    useCase: "A medium-sized business is evaluating different network topologies to optimize communication between its departments. Using Packet Tracer, the IT department is tasked with simulating various topologies to assess performance and reliability.",
+    scenario: "As part of the IT team, you are required to simulate different network topologies (Star, Mesh, Bus) using Packet Tracer. You will use Simple and Complex PDUs to analyze how data travels across the network, evaluating packet delivery time, redundancy, and communication reliability."
+  },
+  {
+    objective: "To demonstrate how to connect multiple networks using routers and configure DHCP and DNS for dynamic IP allocation and domain name resolution.",
+    useCase: "A company with three branch offices located in different cities needs to establish communication between the branches. The IT department is tasked with connecting these networks using routers and ensuring IP address allocation and domain name resolution using DHCP and DNS.",
+    scenario: "The company’s branches—Head Office, Branch A, and Branch B—need to be connected via routers. You are tasked with creating the network topology using routers, configuring DHCP for dynamic IP address allocation, and setting up a DNS server for name resolution between the branches."
+  },
+  {
+    objective: "To configure various network application services including SMTP, FTP, HTTP, TFTP, DHCP, and DNS in Packet Tracer.",
+    useCase: "An organization is setting up its network infrastructure, requiring various services such as email (SMTP), file transfer (FTP), and web hosting (HTTP). The IT team must configure these services and ensure they function properly within the network.",
+    scenario: "You are responsible for configuring a variety of application services in a company’s network. These include setting up an email server using SMTP, configuring an FTP server for file transfers, hosting a website using HTTP, and ensuring network functionality with DHCP and DNS services."
+  },
+  {
+    objective: "To learn and perform basic virtualization tasks such as creating virtual machines (VMs), configuring VM networking, managing disks, cloning, and creating snapshots in VMware.",
+    useCase: "A company is transitioning to a virtualized infrastructure using VMware to reduce hardware costs. The IT department is tasked with setting up VMs, managing storage, and ensuring high availability using snapshots and cloning.",
+    scenario: "You are required to set up and manage virtual machines for a new virtualized environment. This includes creating VMs, configuring networking, merging and splitting disks, cloning the OS, and taking snapshots for backup and recovery."
+  },
+  {
+    objective: "To introduce Identity and Access Management (IAM) in AWS and configure users, roles, and policies for access control and security.",
+    useCase: "A company wants to securely manage access to its AWS resources. The IT team must configure IAM to control who can access certain AWS services and resources.",
+    scenario: "You are responsible for setting up IAM users and assigning roles and policies to manage access control in the AWS environment. This ensures that each user has the appropriate permissions to perform tasks securely."
+  },
+  {
+    objective: "To create and configure an EC2 instance in AWS for deploying applications.",
+    useCase: "A company needs to deploy a web application on the cloud. The IT team is tasked with launching an EC2 instance to host the application.",
+    scenario: "You are required to create and configure an EC2 instance in AWS to host a web application. The instance will be secured with key pairs and security groups and remotely accessed via SSH for deployment purposes."
+  },
+  {
+    objective: "Learn to host a website on AWS by installing Apache web server on an EC2 instance.",
+    useCase: "A company wants to host a basic website on AWS. The IT team is asked to use EC2 and Apache to get the website live.",
+    scenario: "You need to launch an EC2 instance, install Apache, and upload your website files to the server so the site can be accessed online."
+  },
+  {
+    objective: "To create and manage an S3 bucket in AWS and configure access for a single IAM user.",
+    useCase: "A company needs a storage solution for its application data, and the IT team must configure an S3 bucket with secure access for a single IAM user.",
+    scenario: "You are tasked with setting up an S3 bucket for application storage. You will create the bucket, configure its permissions, and grant access to a single IAM user to manage the data."
+  }
 ];
     return questions[Math.floor(Math.random() * questions.length)];
   }
