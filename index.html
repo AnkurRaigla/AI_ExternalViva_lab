@@ -10,140 +10,147 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #f9f9f9;
   }
   .container {
     max-width: 600px;
     margin: 50px auto;
     padding: 20px;
-    border: 1px solid #ccc;
+    background: #fff;
+    border: 1px solid #ddd;
     border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  h2, h3 {
+    text-align: center;
+    color: #333;
   }
   label {
     font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
   }
   input[type="text"] {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: 5px;
     box-sizing: border-box;
   }
   button {
+    display: block;
+    width: 100%;
     background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
+    padding: 10px;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
   }
   button:hover {
     background-color: #45a049;
+  }
+  #questionDisplay {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    background-color: #f4f4f4;
   }
 </style>
 </head>
 <body>
 
 <div class="container">
-  <h2>Question Assignment</h2>
+  <h2>University Question Assignment</h2>
   <form id="questionForm">
-    <label for="rollNumber">Enter your 10-digit Roll Number:</label>
-    <input type="text" id="rollNumber" name="rollNumber" maxlength="10" required pattern="\d{10}" title="Please enter a 10-digit number">
+    <label for="rollNumber">Enter your 10-digit University Roll Number:</label>
+    <input 
+      type="text" 
+      id="rollNumber" 
+      name="rollNumber" 
+      maxlength="10" 
+      required 
+      pattern="\d{10}" 
+      title="Please enter a valid 10-digit roll number">
     <button type="submit">Submit</button>
   </form>
-  <div id="questionDisplay" style="display:none;">
-    <h3>Your assigned question:</h3>
+  <div id="questionDisplay">
+    <h3>Your Assigned Question</h3>
     <p id="assignedQuestion"></p>
   </div>
 </div>
 
 <script>
-  // Define an object to store assigned questions
+  // List of questions with objectives, use cases, and scenarios
+  const questions = [
+    {
+      objective: "To introduce students to Cisco Packet Tracer and its use in simulating network environments.",
+      useCase: "A small company needs a network infrastructure to enable communication between computers, printers, and a central server. The IT team decides to simulate the network using Packet Tracer to troubleshoot potential issues before implementing it in real life.",
+      scenario: "You have been asked to simulate a small office network using Cisco Packet Tracer. The network includes four computers connected through a switch. Test the connectivity between these devices and observe how packets travel across the network using Simple and Complex PDU tools."
+    },
+    {
+      objective: "To explore various network topologies and understand the use of Simple and Complex PDUs in network communication analysis.",
+      useCase: "A medium-sized business is evaluating different network topologies to optimize communication between its departments. Using Packet Tracer, the IT department is tasked with simulating various topologies to assess performance and reliability.",
+      scenario: "As part of the IT team, you are required to simulate different network topologies (Star, Mesh, Bus) using Packet Tracer. You will use Simple and Complex PDUs to analyze how data travels across the network, evaluating packet delivery time, redundancy, and communication reliability."
+    },
+    {
+      objective: "To create and configure an EC2 instance in AWS for deploying applications.",
+      useCase: "A company needs to deploy a web application on the cloud. The IT team is tasked with launching an EC2 instance to host the application.",
+      scenario: "You are required to create and configure an EC2 instance in AWS to host a web application. The instance will be secured with key pairs and security groups and remotely accessed via SSH for deployment purposes."
+    },
+    {
+      objective: "To create and manage an S3 bucket in AWS and configure access for a single IAM user.",
+      useCase: "A company needs a storage solution for its application data, and the IT team must configure an S3 bucket with secure access for a single IAM user.",
+      scenario: "You are tasked with setting up an S3 bucket for application storage. You will create the bucket, configure its permissions, and grant access to a single IAM user to manage the data."
+    },
+    {
+      objective: "Learn to host a website on AWS by installing Apache web server on an EC2 instance.",
+      useCase: "A company wants to host a basic website on AWS. The IT team is asked to use EC2 and Apache to get the website live.",
+      scenario: "You need to launch an EC2 instance, install Apache, and upload your website files to the server so the site can be accessed online."
+    }
+    // Add more questions as needed
+  ];
+
+  // Object to store assigned questions by roll number
   let assignedQuestions = {};
 
   // Function to generate a random question
   function generateQuestion() {
-    const questions = [
-  {
-    objective: "To introduce students to Cisco Packet Tracer and its use in simulating network environments.",
-    useCase: "A small company needs a network infrastructure to enable communication between computers, printers, and a central server. The IT team decides to simulate the network using Packet Tracer to troubleshoot potential issues before implementing it in real life.",
-    scenario: "You have been asked to simulate a small office network using Cisco Packet Tracer. The network includes four computers connected through a switch. Test the connectivity between these devices and observe how packets travel across the network using Simple and Complex PDU tools."
-  },
-  {
-    objective: "To explore various network topologies and understand the use of Simple and Complex PDUs in network communication analysis.",
-    useCase: "A medium-sized business is evaluating different network topologies to optimize communication between its departments. Using Packet Tracer, the IT department is tasked with simulating various topologies to assess performance and reliability.",
-    scenario: "As part of the IT team, you are required to simulate different network topologies (Star, Mesh, Bus) using Packet Tracer. You will use Simple and Complex PDUs to analyze how data travels across the network, evaluating packet delivery time, redundancy, and communication reliability."
-  },
-  {
-    objective: "To demonstrate how to connect multiple networks using routers and configure DHCP and DNS for dynamic IP allocation and domain name resolution.",
-    useCase: "A company with three branch offices located in different cities needs to establish communication between the branches. The IT department is tasked with connecting these networks using routers and ensuring IP address allocation and domain name resolution using DHCP and DNS.",
-    scenario: "The company’s branches—Head Office, Branch A, and Branch B—need to be connected via routers. You are tasked with creating the network topology using routers, configuring DHCP for dynamic IP address allocation, and setting up a DNS server for name resolution between the branches."
-  },
-  {
-    objective: "To configure various network application services including SMTP, FTP, HTTP, TFTP, DHCP, and DNS in Packet Tracer.",
-    useCase: "An organization is setting up its network infrastructure, requiring various services such as email (SMTP), file transfer (FTP), and web hosting (HTTP). The IT team must configure these services and ensure they function properly within the network.",
-    scenario: "You are responsible for configuring a variety of application services in a company’s network. These include setting up an email server using SMTP, configuring an FTP server for file transfers, hosting a website using HTTP, and ensuring network functionality with DHCP and DNS services."
-  },
-  {
-    objective: "To learn and perform basic virtualization tasks such as creating virtual machines (VMs), configuring VM networking, managing disks, cloning, and creating snapshots in VMware.",
-    useCase: "A company is transitioning to a virtualized infrastructure using VMware to reduce hardware costs. The IT department is tasked with setting up VMs, managing storage, and ensuring high availability using snapshots and cloning.",
-    scenario: "You are required to set up and manage virtual machines for a new virtualized environment. This includes creating VMs, configuring networking, merging and splitting disks, cloning the OS, and taking snapshots for backup and recovery."
-  },
-  {
-    objective: "To introduce Identity and Access Management (IAM) in AWS and configure users, roles, and policies for access control and security.",
-    useCase: "A company wants to securely manage access to its AWS resources. The IT team must configure IAM to control who can access certain AWS services and resources.",
-    scenario: "You are responsible for setting up IAM users and assigning roles and policies to manage access control in the AWS environment. This ensures that each user has the appropriate permissions to perform tasks securely."
-  },
-  {
-    objective: "To create and configure an EC2 instance in AWS for deploying applications.",
-    useCase: "A company needs to deploy a web application on the cloud. The IT team is tasked with launching an EC2 instance to host the application.",
-    scenario: "You are required to create and configure an EC2 instance in AWS to host a web application. The instance will be secured with key pairs and security groups and remotely accessed via SSH for deployment purposes."
-  },
-  {
-    objective: "Learn to host a website on AWS by installing Apache web server on an EC2 instance.",
-    useCase: "A company wants to host a basic website on AWS. The IT team is asked to use EC2 and Apache to get the website live.",
-    scenario: "You need to launch an EC2 instance, install Apache, and upload your website files to the server so the site can be accessed online."
-  },
-  {
-    objective: "To create and manage an S3 bucket in AWS and configure access for a single IAM user.",
-    useCase: "A company needs a storage solution for its application data, and the IT team must configure an S3 bucket with secure access for a single IAM user.",
-    scenario: "You are tasked with setting up an S3 bucket for application storage. You will create the bucket, configure its permissions, and grant access to a single IAM user to manage the data."
-  }
-];
     return questions[Math.floor(Math.random() * questions.length)];
   }
 
-  // Function to handle form submission
-  function handleSubmit(event) {
-  event.preventDefault();
-  const rollNumber = document.getElementById('rollNumber').value;
-
-  if (assignedQuestions.hasOwnProperty(rollNumber)) {
-    // If the question is already assigned to the roll number
-    const question = assignedQuestions[rollNumber];
-    displayQuestion(question);
-  } else {
-    // If the question is not assigned yet
-    const question = generateQuestion();
-    assignedQuestions[rollNumber] = question;
-    displayQuestion(question);
+  // Function to display the assigned question
+  function displayQuestion(question) {
+    const questionDisplay = document.getElementById('assignedQuestion');
+    questionDisplay.innerHTML = `
+      <strong>Objective:</strong> ${question.objective}<br>
+      <strong>Use Case:</strong> ${question.useCase}<br>
+      <strong>Scenario:</strong> ${question.scenario}
+    `;
   }
 
-  document.getElementById('questionDisplay').style.display = 'block';
-}
+  // Handle form submission
+  document.getElementById('questionForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const rollNumber = document.getElementById('rollNumber').value;
 
-// Function to display a question
-function displayQuestion(question) {
-  const questionDisplay = document.getElementById('assignedQuestion');
-  questionDisplay.innerHTML = `
-    <strong>Objective:</strong> ${question.objective}<br>
-    <strong>Use Case:</strong> ${question.useCase}<br>
-    <strong>Scenario:</strong> ${question.scenario}
-  `;
-}
+    if (assignedQuestions.hasOwnProperty(rollNumber)) {
+      // If a question is already assigned to the roll number
+      displayQuestion(assignedQuestions[rollNumber]);
+    } else {
+      // Assign a new question
+      const question = generateQuestion();
+      assignedQuestions[rollNumber] = question;
+      displayQuestion(question);
+    }
 
-// Add event listener to the form
-document.getElementById('questionForm').addEventListener('submit', handleSubmit);
+    // Show the assigned question
+    document.getElementById('questionDisplay').style.display = 'block';
+  });
 </script>
 
 </body>
