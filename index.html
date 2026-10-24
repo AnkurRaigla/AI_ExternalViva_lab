@@ -1,156 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Question Assignment</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      background-color: #f9f9f9;
-    }
-    .container {
-      max-width: 600px;
-      margin: 50px auto;
-      padding: 20px;
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    h2, h3 {
-      text-align: center;
-      color: #333;
-    }
-    label {
-      font-weight: bold;
-      display: block;
-      margin-bottom: 5px;
-      color: #555;
-    }
-    input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-sizing: border-box;
-    }
-    button {
-      display: block;
-      width: 100%;
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-    #questionDisplay {
-      display: none;
-      margin-top: 20px;
-      padding: 15px;
-      border-top: 1px solid #ddd;
-      background-color: #f4f4f4;
-    }
-  </style>
-</head>
-<body>
-<div class="container">
-  <h2>University Question Assignment</h2>
-  <form id="questionForm">
-    <label for="rollNumber">Enter your 10-digit University Roll Number:</label>
-    <input type="text" id="rollNumber" name="rollNumber" maxlength="10" required pattern="\d{10}" title="Please enter a valid 10-digit roll number">
-    <button type="submit">Submit</button>
-  </form>
-  <div id="questionDisplay">
-    <h3>Your Assigned Question</h3>
-    <p id="assignedQuestion"></p>
-  </div>
-</div>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IoT Practical Examination | SECE3221</title>
+<style>
+:root{font-family:system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:#1c2940;background:#f2f5fa}*{box-sizing:border-box}body{margin:0}.wrap{max-width:900px;margin:38px auto;padding:0 18px 45px}.hero{background:linear-gradient(120deg,#183b69,#245f91);color:white;border-radius:15px;padding:28px 30px}.hero h1{margin:7px 0;font-size:clamp(23px,4vw,34px)}.hero p{margin:5px 0;color:#e5f0fc}.panel{background:white;border:1px solid #e0e7f0;border-radius:14px;padding:26px;margin-top:18px;box-shadow:0 3px 16px #152d4910}.small{font-size:13px;color:#65728a}.tag{font-size:12px;letter-spacing:.08em;font-weight:700;text-transform:uppercase;color:#a8d9ff}.schedule{width:100%;border-collapse:collapse;font-size:14px}.schedule td,.schedule th{text-align:left;padding:11px;border-bottom:1px solid #e8edf5}.schedule th{background:#f4f7fc}h2{margin:0 0 16px;font-size:21px}label{display:block;font-weight:650;margin:14px 0 7px}select,input{width:100%;font-size:16px;padding:13px;border:1px solid #b8c5d8;border-radius:9px;background:#fff;color:#1c2940}button{background:#1766a3;border:0;color:#fff;padding:13px 18px;border-radius:9px;font-size:16px;font-weight:650;cursor:pointer}button:hover{background:#124e7e}button.secondary{background:#edf4fa;color:#205b89}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.alert{background:#fff4df;color:#77501b;padding:11px 13px;border-radius:9px;font-size:13px;margin-top:14px}.error{color:#b42318;font-weight:650;min-height:20px}.case-title{color:#164d7c;margin:4px 0 15px;font-size:24px}.meta{display:flex;gap:8px;flex-wrap:wrap}.pill{background:#eaf3fc;color:#1b527e;padding:7px 10px;border-radius:7px;font-size:13px;font-weight:650}.scenario{background:#f3f7fc;border-left:4px solid #2675b0;padding:15px;line-height:1.65;border-radius:6px}.q{line-height:1.65;padding:10px 0;border-bottom:1px solid #edf0f5}.q b{color:#1c6096}.instructions li{padding:4px 0;line-height:1.5}.hidden{display:none}@media print{.no-print{display:none!important}.wrap{margin:0;max-width:none}.panel{box-shadow:none;break-inside:avoid}.hero{color:#1c2940;background:white;border:1px solid #bbb}.hero p{color:#333}.tag{color:#333}}@media(max-width:540px){.panel,.hero{padding:19px}.schedule{font-size:12px}}
+</style></head><body><main class="wrap">
+<header class="hero"><div class="tag">Semester V Engineering · External Practical</div><h1>Internet of Things (IoT)</h1><p>Question Assignment Portal · Course Code SECE3221</p></header>
 
-<script>
-  // List of updated questions
-  const questions = [
-    {
-      objective: "To introduce students to Cisco Packet Tracer and its use in simulating network environments.",
-      scenario: "You have been asked to simulate a small office network using Cisco Packet Tracer. The network includes four computers connected through a switch. Test the connectivity between these devices and observe how packets travel across the network using Simple and Complex PDU tools."
-    },
-    {
-      objective: "To explore various network topologies and understand the use of Simple and Complex PDUs in network communication analysis.",
-      scenario: "As part of the IT team, you are required to simulate different network topologies (Star, Mesh, Bus) using Packet Tracer. You will use Simple and Complex PDUs to analyze how data travels across the network, evaluating packet delivery time, redundancy, and communication reliability."
-    },
-    {
-      objective: "To demonstrate how to connect multiple networks using routers and configure DHCP and DNS for dynamic IP allocation and domain name resolution.",
-      scenario: "The company’s branches—Head Office, Branch A, and Branch B—need to be connected via routers. You are tasked with creating the network topology using routers, configuring DHCP for dynamic IP address allocation, and setting up a DNS server for name resolution between the branches."
-    },
-    {
-      objective: "To configure various network application services including SMTP, FTP, HTTP, TFTP, DHCP, and DNS in Packet Tracer.",
-      scenario: "You are responsible for configuring a variety of application services in a company’s network. These include setting up an email server using SMTP, configuring an FTP server for file transfers, hosting a website using HTTP, and ensuring network functionality with DHCP and DNS services."
-    },
-    {
-      objective: "To learn and perform basic virtualization tasks such as creating virtual machines (VMs), configuring VM networking, managing disks, cloning, and creating snapshots in VMware.",
-      scenario: "You are required to set up and manage virtual machines for a new virtualized environment. This includes creating VMs, configuring networking, merging and splitting disks, cloning the OS, and taking snapshots for backup and recovery."
-    },
-    {
-      objective: "To introduce Identity and Access Management (IAM) in AWS and configure users, roles, and policies for access control and security.",
-      scenario: "You are responsible for setting up IAM users and assigning roles and policies to manage access control in the AWS environment. This ensures that each user has the appropriate permissions to perform tasks securely."
-    },
-    {
-      objective: "To create and configure an EC2 instance in AWS for deploying applications.",
-      scenario: "You are required to create and configure an EC2 instance in AWS to host a web application. The instance will be secured with key pairs and security groups and remotely accessed via SSH for deployment purposes."
-    },
-    {
-      objective: "Learn to host a website on AWS by installing Apache web server on an EC2 instance.",
-      scenario: "You need to launch an EC2 instance, install Apache, and upload your website files to the server so the site can be accessed online."
-    }
-  ];
-
-  // Store assigned questions
-  const assignedQuestions = {};
-
-  // Function to generate a random question
-  function generateQuestion() {
-    return questions[Math.floor(Math.random() * questions.length)];
+<section class="panel no-print"><h2>Get your assigned case study</h2><form id="assignmentForm"><label for="roll">University roll number</label><input id="roll" type="text" maxlength="20" placeholder="e.g. 24SE02IT084" autocomplete="off" spellcheck="false" required pattern="[A-Za-z0-9]{8,20}" title="Enter an alphanumeric university roll number (8–20 characters)"><div class="actions"><button type="submit">Assign my case study</button></div><p id="error" class="error" role="alert"></p></form></section>
+<section class="panel hidden" id="result" aria-live="polite"><div class="meta"><span class="pill" id="studentRoll"></span></div><p class="small" style="margin-top:20px">YOUR ALLOTTED CASE STUDY</p><h2 class="case-title" id="caseTitle"></h2><h3>Scenario</h3><div class="scenario" id="scenario"></div><h3>Tasks</h3><div id="questions"></div><h3>Common examination instructions</h3><ol class="instructions"><li>Implement the proposed circuit using Tinkercad Circuits.</li><li>Write and execute the Arduino program to satisfy the given requirements.</li><li>Demonstrate the circuit using suitable test inputs and verify the output.</li><li>Explain the choice of sensors, actuators, controller, and interfacing connections.</li><li>Identify one way to extend the prototype into a network-connected IoT system using an appropriate protocol or cloud platform.</li><li>Explain at least two security, safety, or reliability considerations relevant to the selected application.</li></ol><div class="actions no-print"><button type="button" onclick="window.print()">Print / Save as PDF</button><button type="button" class="secondary" id="backBtn">Enter another roll number</button></div></section>
+</main><script>
+const cases = [
+  {
+    "number": 1,
+    "title": "Smart Parking Management System",
+    "scenario": "A smart-city start-up wants to develop a parking management system for a shopping mall. The system should detect whether a parking slot is occupied, indicate slot availability using LEDs, and automatically open a barrier when a vehicle approaches an available slot. The system should display parking status in real time.",
+    "questions": [
+      "Identify the sensors and actuators required for this system, with justification.",
+      "Propose a suitable microcontroller/development board for this application and justify your choice.",
+      "Design a simple interfacing/block diagram showing how the sensors, LEDs, servo motor, and controller are connected.",
+      "Develop the decision logic to detect vehicle presence, indicate slot availability, and control the parking barrier."
+    ]
+  },
+  {
+    "number": 2,
+    "title": "Smart Room Temperature Monitoring and Cooling System",
+    "scenario": "A company wants to develop an intelligent room temperature monitoring system for its server room. The system should continuously measure temperature, display the current temperature, activate a cooling fan when the temperature exceeds a predefined threshold, and generate an alert when the temperature becomes critically high.",
+    "questions": [
+      "Identify the appropriate temperature sensor and actuators for this system, with justification.",
+      "Select a suitable microcontroller/development board and explain why it is appropriate for temperature monitoring and automatic cooling.",
+      "Draw an interfacing/block diagram showing the connections between the temperature sensor, fan, buzzer, display, and controller.",
+      "Develop the control logic to activate the fan and buzzer at different temperature thresholds."
+    ]
+  },
+  {
+    "number": 3,
+    "title": "Smart Home Intrusion Detection System",
+    "scenario": "A residential security company wants to design a smart intrusion detection system for homes. The system should detect motion inside a protected area, activate an alarm, turn on a warning light, and allow the user to arm or disarm the system using a push button. The system should also indicate whether the security system is armed.",
+    "questions": [
+      "Identify the sensors, actuators, and input devices required for this application, with justification.",
+      "Select a suitable microcontroller/development board and justify its suitability for a home security system.",
+      "Design an interfacing/block diagram showing how the motion sensor, push button, buzzer, LEDs, and controller are connected.",
+      "Develop the decision logic for arming and disarming the system and activating the alarm when motion is detected."
+    ]
+  },
+  {
+    "number": 4,
+    "title": "Smart Irrigation and Plant Monitoring System",
+    "scenario": "An agricultural technology company wants to develop an automated irrigation system for a greenhouse. The system should monitor soil moisture and automatically activate a water pump when the soil becomes dry. It should stop irrigation when the required moisture level is reached and indicate the irrigation status to the user.",
+    "questions": [
+      "Identify the sensors and actuators required for this system, with justification.",
+      "Propose a suitable microcontroller/development board and justify your choice for an automated irrigation application.",
+      "Draw an interfacing/block diagram showing the soil moisture input, pump control circuit, status LEDs, and controller.",
+      "Develop the control algorithm for starting and stopping irrigation based on soil moisture readings, including suitable threshold values and protection against unnecessary repeated switching."
+    ]
+  },
+  {
+    "number": 5,
+    "title": "Intelligent Traffic Light Control System",
+    "scenario": "A city traffic management department wants to implement an intelligent traffic light controller at a road intersection. The system should operate traffic signals in a predefined sequence, allow pedestrians to request permission to cross using a push button, and provide a safe crossing interval before returning to normal traffic operation.",
+    "questions": [
+      "Identify the input devices and output actuators required for this system, with justification.",
+      "Select a suitable microcontroller/development board and justify its suitability for controlling traffic signals.",
+      "Design an interfacing/block diagram showing the traffic signal LEDs, pedestrian push button, and controller connections.",
+      "Develop the control logic for normal traffic sequencing and pedestrian crossing, ensuring that conflicting traffic signals are never green simultaneously."
+    ]
+  },
+  {
+    "number": 6,
+    "title": "Smart Water Tank Level Monitoring System",
+    "scenario": "A residential apartment complex wants to automate its overhead water tank. The system should measure the water level continuously, indicate low, medium, and high water levels, automatically switch on the water pump when the tank level is low, and turn off the pump when the tank is full.",
+    "questions": [
+      "Identify the sensor and actuators required for water level monitoring and pump control, with justification.",
+      "Propose a suitable microcontroller/development board and explain its advantages for this application.",
+      "Draw an interfacing/block diagram showing the distance sensor, pump control circuit, indicator LEDs, and controller.",
+      "Develop the decision logic for identifying water levels and automatically controlling the pump, including a strategy to prevent rapid switching near a threshold."
+    ]
+  },
+  {
+    "number": 7,
+    "title": "Automatic Smart Street Lighting System",
+    "scenario": "A municipal corporation wants to implement an energy-efficient street lighting system. The system should automatically turn streetlights on when the surrounding light level becomes low and turn them off during daylight. It should also use motion detection to increase the brightness of a streetlight when a pedestrian or vehicle approaches.",
+    "questions": [
+      "Identify the sensors and actuators required for this system, with justification.",
+      "Select a suitable microcontroller/development board and justify its use for automatic street lighting.",
+      "Design an interfacing/block diagram showing the ambient light sensor, motion sensor, streetlight LEDs, and controller.",
+      "Develop the control logic for daylight/nighttime detection and motion-based brightness control using digital outputs or PWM."
+    ]
+  },
+  {
+    "number": 8,
+    "title": "Smart Gas-Leak Warning and Safety System",
+    "scenario": "A safety automation company wants to develop a prototype warning system for a kitchen or laboratory. The system should monitor a simulated gas-concentration input, activate a buzzer and warning light when the reading exceeds a safe threshold, and activate a ventilation fan output. The system should return to normal only after the input falls below a safe reset threshold.",
+    "questions": [
+      "Identify the sensors and actuators required for this system, with justification.",
+      "Propose a suitable microcontroller/development board and justify its selection for continuous monitoring and alert generation.",
+      "Draw an interfacing/block diagram showing the simulated gas sensor input, buzzer, warning LEDs, fan control circuit, and controller.",
+      "Develop the decision logic for normal, warning, and critical conditions, using different thresholds and hysteresis to avoid repeated switching."
+    ]
+  },
+  {
+    "number": 9,
+    "title": "Smart Industrial Machine Monitoring System",
+    "scenario": "An industrial automation company wants to build a basic machine condition monitoring system for a small production unit. The system should monitor a simulated machine temperature and vibration or abnormal-condition input, display the readings, activate a warning indicator when a threshold is exceeded, and stop the machine when a critical condition is detected.",
+    "questions": [
+      "Identify the sensors and actuators required for this application, with justification. Explain how a simulated input can be used when a suitable vibration sensor is unavailable in Tinkercad.",
+      "Select a suitable microcontroller/development board and justify its suitability for monitoring and controlling an industrial prototype.",
+      "Design an interfacing/block diagram showing the temperature sensor, simulated abnormal-condition input, motor, warning indicators, and controller.",
+      "Develop the decision logic for normal operation, warning conditions, and critical shutdown, including how the system can resume operation safely after the fault is cleared."
+    ]
+  },
+  {
+    "number": 10,
+    "title": "Password-Based Smart Door Access System",
+    "scenario": "A smart-home company wants to develop an electronic door access system for an office. The system should allow an authorized user to enter a password using a keypad, unlock the door using a servo motor when the password is correct, and activate an alarm after three consecutive incorrect attempts. The system should display access status and allow the door to relock automatically after a specified interval.",
+    "questions": [
+      "Identify the input devices and actuators required for the system, with justification.",
+      "Propose a suitable microcontroller/development board and justify its choice for password verification and door control.",
+      "Draw an interfacing/block diagram showing the keypad, servo motor, buzzer, status LEDs, LCD, and controller.",
+      "Develop the access-control algorithm for password verification, automatic relocking, and alarm activation after three incorrect attempts. Explain how passwords should be stored and protected in a real IoT implementation."
+    ]
   }
-
-  // Function to display the assigned question
-  function displayQuestion(question) {
-    const questionDisplay = document.getElementById('assignedQuestion');
-    questionDisplay.innerHTML = `
-      <strong>Objective:</strong> ${question.objective}<br><br>
-      <strong>Scenario:</strong> ${question.scenario}
-    `;
-  }
-
-  // Form submission handling
-  document.getElementById('questionForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const rollNumber = document.getElementById('rollNumber').value;
-    
-    if (!/^\d{10}$/.test(rollNumber)) {
-      alert("Please enter a valid 10-digit Roll Number.");
-      return;
-    }
-
-    if (assignedQuestions.hasOwnProperty(rollNumber)) {
-      displayQuestion(assignedQuestions[rollNumber]);
-    } else {
-      const question = generateQuestion();
-      assignedQuestions[rollNumber] = question;
-      displayQuestion(question);
-    }
-
-    document.getElementById('questionDisplay').style.display = 'block';
-  });
-</script>
-
-</body>
-</html>
+];
+// Deterministic pseudo-random allocation: same roll => same case, across devices.
+// Not cryptographically secure. Students can inspect or modify client-side JavaScript.
+function assignedIndex(roll){const key='SECE3221|'+roll;let h=2166136261;for(let i=0;i<key.length;i++){h^=key.charCodeAt(i);h=Math.imul(h,16777619)}return (h>>>0)%cases.length}
+const form=document.getElementById('assignmentForm');
+form.addEventListener('submit',e=>{e.preventDefault();const roll=document.getElementById('roll').value.trim().toUpperCase();const err=document.getElementById('error');err.textContent='';if(!/^[A-Z0-9]{8,20}$/.test(roll)){err.textContent='Please enter a valid alphanumeric roll number.';return}const c=cases[assignedIndex(roll)];document.getElementById('studentRoll').textContent='Roll: '+roll;document.getElementById('caseTitle').textContent='Case Study '+c.number+': '+c.title;document.getElementById('scenario').textContent=c.scenario;const q=document.getElementById('questions');q.replaceChildren();c.questions.forEach((s,i)=>{const p=document.createElement('p');p.className='q';const b=document.createElement('b');b.textContent='('+String.fromCharCode(97+i)+') ';p.append(b,document.createTextNode(s));q.append(p)});document.getElementById('result').classList.remove('hidden');document.getElementById('result').scrollIntoView({behavior:'smooth',block:'start'});});
+document.getElementById('backBtn').addEventListener('click',()=>{document.getElementById('result').classList.add('hidden');document.getElementById('roll').value='';document.getElementById('roll').focus();window.scrollTo({top:0,behavior:'smooth'})});
+</script></body></html>
