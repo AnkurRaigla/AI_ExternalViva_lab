@@ -12,112 +12,112 @@
 const cases = [
   {
     "number": 1,
-    "title": "Smart Parking Management System",
-    "scenario": "A smart-city start-up wants to develop a parking management system for a shopping mall. The system should detect whether a parking slot is occupied, indicate slot availability using LEDs, and automatically open a barrier when a vehicle approaches an available slot. The system should display parking status in real time.",
+    "title": "Smart Waste Bin Monitoring System",
+    "scenario": "A smart-city service provider wants to develop a prototype that monitors the fill level of public waste bins. The system should measure the distance between the waste and the top of the bin, indicate when the bin is nearly full, and activate a warning indicator when collection is required. The system should also display the current fill status.",
     "questions": [
-      "Identify the sensors and actuators required for this system, with justification.",
-      "Propose a suitable microcontroller/development board for this application and justify your choice.",
-      "Design a simple interfacing/block diagram showing how the sensors, LEDs, servo motor, and controller are connected.",
-      "Develop the decision logic to detect vehicle presence, indicate slot availability, and control the parking barrier."
+      "Identify the sensor and output devices required to estimate the bin fill level, with justification.",
+      "Propose a suitable microcontroller/development board and justify its choice for this monitoring application.",
+      "Design an interfacing/block diagram showing the distance sensor, status LEDs or buzzer, display, and controller connections.",
+      "Develop the decision logic for empty, partially filled, and nearly full conditions. Include suitable thresholds and a method to avoid rapid changes in status near a threshold."
     ]
   },
   {
     "number": 2,
-    "title": "Smart Room Temperature Monitoring and Cooling System",
-    "scenario": "A company wants to develop an intelligent room temperature monitoring system for its server room. The system should continuously measure temperature, display the current temperature, activate a cooling fan when the temperature exceeds a predefined threshold, and generate an alert when the temperature becomes critically high.",
+    "title": "Smart Classroom Occupancy and Energy Saving System",
+    "scenario": "An educational institution wants to reduce unnecessary electricity use in classrooms. The system should detect whether a classroom is occupied, switch a light and fan output on when people are present, and switch them off after the room remains unoccupied for a predefined interval. A manual override button should allow the user to control the outputs.",
     "questions": [
-      "Identify the appropriate temperature sensor and actuators for this system, with justification.",
-      "Select a suitable microcontroller/development board and explain why it is appropriate for temperature monitoring and automatic cooling.",
-      "Draw an interfacing/block diagram showing the connections between the temperature sensor, fan, buzzer, display, and controller.",
-      "Develop the control logic to activate the fan and buzzer at different temperature thresholds."
+      "Identify the sensors, actuators, and input devices required for occupancy-based control, with justification.",
+      "Select a suitable microcontroller/development board and explain why it is appropriate for this application.",
+      "Draw an interfacing/block diagram showing the motion sensor, override button, light and fan outputs, and controller.",
+      "Develop the control logic for occupied and unoccupied states, including the delay before switching outputs off and the operation of the manual override."
     ]
   },
   {
     "number": 3,
-    "title": "Smart Home Intrusion Detection System",
-    "scenario": "A residential security company wants to design a smart intrusion detection system for homes. The system should detect motion inside a protected area, activate an alarm, turn on a warning light, and allow the user to arm or disarm the system using a push button. The system should also indicate whether the security system is armed.",
+    "title": "Smart Medicine Reminder Box",
+    "scenario": "A healthcare product team wants to develop a reminder box that helps a user follow a scheduled medicine routine. The prototype should use a push button to simulate acknowledgement, indicate reminder time using an LED and buzzer, and stop the alert when the user acknowledges it. A display should show the reminder or acknowledgement status.",
     "questions": [
-      "Identify the sensors, actuators, and input devices required for this application, with justification.",
-      "Select a suitable microcontroller/development board and justify its suitability for a home security system.",
-      "Design an interfacing/block diagram showing how the motion sensor, push button, buzzer, LEDs, and controller are connected.",
-      "Develop the decision logic for arming and disarming the system and activating the alarm when motion is detected."
+      "Identify the input devices and output actuators required for the reminder box, with justification.",
+      "Propose a suitable microcontroller/development board and justify its suitability for timing and reminder control.",
+      "Design an interfacing/block diagram showing the push button, buzzer, LEDs, display, and controller. Explain how a clock or simulated timer can be used in Tinkercad.",
+      "Develop the decision logic for generating a reminder, accepting acknowledgement, and indicating a missed or acknowledged reminder."
     ]
   },
   {
     "number": 4,
-    "title": "Smart Irrigation and Plant Monitoring System",
-    "scenario": "An agricultural technology company wants to develop an automated irrigation system for a greenhouse. The system should monitor soil moisture and automatically activate a water pump when the soil becomes dry. It should stop irrigation when the required moisture level is reached and indicate the irrigation status to the user.",
+    "title": "Smart Refrigerator Door and Temperature Alert",
+    "scenario": "A home-appliance company wants to build a refrigerator monitoring prototype. The system should monitor the internal temperature, detect when the door is left open, and activate a warning buzzer if the temperature rises above a set limit or the door remains open too long. LEDs should indicate normal and warning conditions.",
     "questions": [
-      "Identify the sensors and actuators required for this system, with justification.",
-      "Propose a suitable microcontroller/development board and justify your choice for an automated irrigation application.",
-      "Draw an interfacing/block diagram showing the soil moisture input, pump control circuit, status LEDs, and controller.",
-      "Develop the control algorithm for starting and stopping irrigation based on soil moisture readings, including suitable threshold values and protection against unnecessary repeated switching."
+      "Identify suitable temperature and door-state sensors or simulated inputs, along with the required actuators, and justify your choices.",
+      "Select a suitable microcontroller/development board and explain its suitability for monitoring multiple inputs.",
+      "Draw an interfacing/block diagram showing the temperature sensor, door switch, buzzer, status LEDs, and controller.",
+      "Develop the decision logic for normal, door-open warning, and high-temperature warning conditions. Explain how timing and separate thresholds can reduce nuisance alarms."
     ]
   },
   {
     "number": 5,
-    "title": "Intelligent Traffic Light Control System",
-    "scenario": "A city traffic management department wants to implement an intelligent traffic light controller at a road intersection. The system should operate traffic signals in a predefined sequence, allow pedestrians to request permission to cross using a push button, and provide a safe crossing interval before returning to normal traffic operation.",
+    "title": "Rain-Sensing Automatic Clothesline",
+    "scenario": "A home-automation team wants to design a prototype that protects clothes drying outdoors. The system should detect rainfall using a rain sensor or simulated analog input and operate a servo motor to move a miniature clothesline cover to the protected position. An LED should indicate whether the cover is open or closed, and the system should return to the drying position after conditions become dry for a specified interval.",
     "questions": [
-      "Identify the input devices and output actuators required for this system, with justification.",
-      "Select a suitable microcontroller/development board and justify its suitability for controlling traffic signals.",
-      "Design an interfacing/block diagram showing the traffic signal LEDs, pedestrian push button, and controller connections.",
-      "Develop the control logic for normal traffic sequencing and pedestrian crossing, ensuring that conflicting traffic signals are never green simultaneously."
+      "Identify the sensor and actuator required for the clothesline system, with justification.",
+      "Propose a suitable microcontroller/development board and justify its choice for sensor reading and servo control.",
+      "Design an interfacing/block diagram showing the rain sensor, servo motor, status LED, and controller.",
+      "Develop the decision logic for rainy and dry conditions, including a delay or hysteresis so that brief sensor fluctuations do not repeatedly move the cover."
     ]
   },
   {
     "number": 6,
-    "title": "Smart Water Tank Level Monitoring System",
-    "scenario": "A residential apartment complex wants to automate its overhead water tank. The system should measure the water level continuously, indicate low, medium, and high water levels, automatically switch on the water pump when the tank level is low, and turn off the pump when the tank is full.",
+    "title": "Smart Queue Token and Display System",
+    "scenario": "A service centre wants a small electronic queue-management prototype. A push button should generate the next token number, a display should show the current token, and a second button should simulate calling the next customer. LEDs or a buzzer should provide an alert when a token is called.",
     "questions": [
-      "Identify the sensor and actuators required for water level monitoring and pump control, with justification.",
-      "Propose a suitable microcontroller/development board and explain its advantages for this application.",
-      "Draw an interfacing/block diagram showing the distance sensor, pump control circuit, indicator LEDs, and controller.",
-      "Develop the decision logic for identifying water levels and automatically controlling the pump, including a strategy to prevent rapid switching near a threshold."
+      "Identify the input devices and output devices required for token generation and calling, with justification.",
+      "Select a suitable microcontroller/development board and justify its suitability for counting and display control.",
+      "Draw an interfacing/block diagram showing the token and call buttons, display, buzzer or LEDs, and controller.",
+      "Develop the logic for incrementing token numbers, calling the next token, handling button presses without accidental multiple counts, and indicating when no further token is available."
     ]
   },
   {
     "number": 7,
-    "title": "Automatic Smart Street Lighting System",
-    "scenario": "A municipal corporation wants to implement an energy-efficient street lighting system. The system should automatically turn streetlights on when the surrounding light level becomes low and turn them off during daylight. It should also use motion detection to increase the brightness of a streetlight when a pedestrian or vehicle approaches.",
+    "title": "Smart Bicycle Safety and Turn Indicator System",
+    "scenario": "A student innovation team wants to develop a bicycle safety prototype. Left and right push buttons should activate the corresponding turn-indicator LEDs, while a brake button should activate a rear brake light. A buzzer may provide an optional audible warning. The system should prevent left and right indicators from being active together.",
     "questions": [
-      "Identify the sensors and actuators required for this system, with justification.",
-      "Select a suitable microcontroller/development board and justify its use for automatic street lighting.",
-      "Design an interfacing/block diagram showing the ambient light sensor, motion sensor, streetlight LEDs, and controller.",
-      "Develop the control logic for daylight/nighttime detection and motion-based brightness control using digital outputs or PWM."
+      "Identify the input devices and output actuators required for the bicycle safety prototype, with justification.",
+      "Propose a suitable microcontroller/development board and explain why it can control the indicators and brake light.",
+      "Design an interfacing/block diagram showing the left and right buttons, brake button, LEDs, optional buzzer, and controller.",
+      "Develop the decision logic for turn indication and braking. Explain how the program should handle simultaneous button presses and ensure conflicting turn indicators are not active together."
     ]
   },
   {
     "number": 8,
-    "title": "Smart Gas-Leak Warning and Safety System",
-    "scenario": "A safety automation company wants to develop a prototype warning system for a kitchen or laboratory. The system should monitor a simulated gas-concentration input, activate a buzzer and warning light when the reading exceeds a safe threshold, and activate a ventilation fan output. The system should return to normal only after the input falls below a safe reset threshold.",
+    "title": "Smart Library Book-Return Counter",
+    "scenario": "A college library wants a prototype to count books returned through a collection slot. A sensor input should detect each book, increment a counter, and display the total number of books received. An LED should blink when a book is detected, and a reset button should be available for the librarian.",
     "questions": [
-      "Identify the sensors and actuators required for this system, with justification.",
-      "Propose a suitable microcontroller/development board and justify its selection for continuous monitoring and alert generation.",
-      "Draw an interfacing/block diagram showing the simulated gas sensor input, buzzer, warning LEDs, fan control circuit, and controller.",
-      "Develop the decision logic for normal, warning, and critical conditions, using different thresholds and hysteresis to avoid repeated switching."
+      "Identify a suitable detection sensor or simulated input, along with the display and indicator devices, and justify the choices.",
+      "Select a suitable microcontroller/development board for event counting and display updates.",
+      "Draw an interfacing/block diagram showing the detection input, reset button, display, indicator LED, and controller.",
+      "Develop the counting logic so that one book produces one count, including a debounce or re-trigger delay to prevent duplicate counts while a book remains in front of the sensor."
     ]
   },
   {
     "number": 9,
-    "title": "Smart Industrial Machine Monitoring System",
-    "scenario": "An industrial automation company wants to build a basic machine condition monitoring system for a small production unit. The system should monitor a simulated machine temperature and vibration or abnormal-condition input, display the readings, activate a warning indicator when a threshold is exceeded, and stop the machine when a critical condition is detected.",
+    "title": "Smart Pet Feeder Prototype",
+    "scenario": "A home-automation team wants to develop a timed pet-feeding prototype. At a scheduled time or when a manual feed button is pressed, a servo motor should rotate a small feeder gate to dispense a portion and then return to its closed position. LEDs should indicate ready and dispensing states.",
     "questions": [
-      "Identify the sensors and actuators required for this application, with justification. Explain how a simulated input can be used when a suitable vibration sensor is unavailable in Tinkercad.",
-      "Select a suitable microcontroller/development board and justify its suitability for monitoring and controlling an industrial prototype.",
-      "Design an interfacing/block diagram showing the temperature sensor, simulated abnormal-condition input, motor, warning indicators, and controller.",
-      "Develop the decision logic for normal operation, warning conditions, and critical shutdown, including how the system can resume operation safely after the fault is cleared."
+      "Identify the input devices and actuators required for the feeder, with justification.",
+      "Propose a suitable microcontroller/development board and justify its suitability for timed control and servo operation.",
+      "Design an interfacing/block diagram showing the manual feed button, servo motor, status LEDs, and controller. Explain how the scheduled time can be represented using a simulated timer in Tinkercad.",
+      "Develop the decision logic for scheduled and manual feeding, including a mechanism to prevent repeated dispensing while a single button press is held."
     ]
   },
   {
     "number": 10,
-    "title": "Password-Based Smart Door Access System",
-    "scenario": "A smart-home company wants to develop an electronic door access system for an office. The system should allow an authorized user to enter a password using a keypad, unlock the door using a servo motor when the password is correct, and activate an alarm after three consecutive incorrect attempts. The system should display access status and allow the door to relock automatically after a specified interval.",
+    "title": "Smart Flood-Level Warning System",
+    "scenario": "A local disaster-management team wants to demonstrate a simple flood-warning prototype. A water-level sensor or potentiometer-based simulated input should represent rising water. The system should indicate safe, caution, and danger levels using LEDs and activate a buzzer at the danger level. The display should show the current level category.",
     "questions": [
-      "Identify the input devices and actuators required for the system, with justification.",
-      "Propose a suitable microcontroller/development board and justify its choice for password verification and door control.",
-      "Draw an interfacing/block diagram showing the keypad, servo motor, buzzer, status LEDs, LCD, and controller.",
-      "Develop the access-control algorithm for password verification, automatic relocking, and alarm activation after three incorrect attempts. Explain how passwords should be stored and protected in a real IoT implementation."
+      "Identify the sensor or simulated input and the output devices required for flood-level warning, with justification.",
+      "Select a suitable microcontroller/development board and explain its suitability for threshold-based monitoring and alerts.",
+      "Draw an interfacing/block diagram showing the water-level input, LEDs, buzzer, display, and controller.",
+      "Develop the decision logic for safe, caution, and danger states using appropriate thresholds. Explain how hysteresis and alert-reset conditions can prevent repeated alarm switching."
     ]
   }
 ];
